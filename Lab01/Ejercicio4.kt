@@ -2,6 +2,7 @@ fun main() {
     var opcion: Int
     var continuar = true
 
+    // Bucle principal del programa
     while (continuar) {
         println("==== Menú ====")
         println("1. Suma")
@@ -11,6 +12,7 @@ fun main() {
         println("5. Salir")
         println("Ingrese una opción:")
 
+        // Leer la opción del usuario y manejar las excepciones
         try {
             opcion = readLine()?.toInt() ?: 0
         } catch (e: NumberFormatException) {
@@ -18,6 +20,7 @@ fun main() {
             continue
         }
 
+        // Ejecutar la opción seleccionada por el usuario
         when (opcion) {
             1 -> suma()
             2 -> resta()
@@ -32,6 +35,7 @@ fun main() {
     }
 }
 
+// Función para ingresar un número, maneja la entrada del usuario y retorna un Double
 fun ingresarNumero(mensaje: String): Double {
     println(mensaje)
     return readLine()?.toDoubleOrNull() ?: run {
@@ -40,6 +44,7 @@ fun ingresarNumero(mensaje: String): Double {
     }
 }
 
+// Función para realizar la suma de varios números ingresados por el usuario
 fun suma() {
     println("¿Cuántos números desea sumar?")
     val cantidadNumeros = readLine()?.toIntOrNull()
@@ -59,6 +64,7 @@ fun suma() {
     println("Resultado de la suma: $sumaTotal")
 }
 
+// Función para realizar la resta de varios números ingresados por el usuario
 fun resta() {
     println("¿Cuántos números desea restar?")
     val cantidadNumeros = readLine()?.toIntOrNull()
@@ -80,6 +86,7 @@ fun resta() {
     println("Resultado de la resta: $resultado")
 }
 
+// Función para realizar la multiplicación de varios números ingresados por el usuario
 fun multiplicacion() {
     println("¿Cuántos números desea multiplicar?")
     val cantidadNumeros = readLine()?.toIntOrNull()
@@ -99,6 +106,7 @@ fun multiplicacion() {
     println("Resultado de la multiplicación: $productoTotal")
 }
 
+// Función para realizar la división de dos números ingresados por el usuario
 fun division() {
     val dividendo = ingresarNumero("Ingrese el dividendo:")
     val divisor = ingresarNumero("Ingrese el divisor:")
