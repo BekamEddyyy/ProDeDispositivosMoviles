@@ -1,6 +1,8 @@
 import kotlin.random.Random
 fun main() {
+    // Array de opciones para el juego
     val opciones = arrayOf("Piedra", "Papel", "Tijera")
+    // La computadora elige una opción aleatoria del array
     val opcionComputadora = opciones[Random.nextInt(opciones.size)]
 
     println("¡Bienvenido al juego de Piedra, Papel o Tijera!")
@@ -21,6 +23,7 @@ fun main() {
     println("La computadora eligió: $opcionComputadora")
     println("Usted eligió: $opcionUsuario")
 
+    // Determinar el resultado del juego
     if (opcionUsuario == opcionComputadora) {
         println("¡Es un empate!")
     } else if ((opcionUsuario == "Piedra" && opcionComputadora == "Tijera") ||
