@@ -31,6 +31,23 @@ class MainActivity : ComponentActivity() { // Declaración de la clase principal
         val C_E: Button = findViewById(R.id.C_E)
         val b_igual: Button = findViewById(R.id.b_igual)
 
+        // Button click listeners
+        btnAdd.setOnClickListener { onOperatorButtonClick(Operator.ADD) }
+        btnSubtract.setOnClickListener { onOperatorButtonClick(Operator.SUBTRACT) }
+        btnMultiply.setOnClickListener { onOperatorButtonClick(Operator.MULTIPLY) }
+        btnDivide.setOnClickListener { onOperatorButtonClick(Operator.DIVIDE) }
+        btnEqual.setOnClickListener { onEqualButtonClick() }
+        btnClear.setOnClickListener { onClearButtonClick() }
+
+        override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putDouble("result", result)
+        outState.putString("currentOperator", currentOperator.name)
+        outState.putDouble("lastNumber", lastNumber)
+        outState.putString("display", display.text.toString())
+        }
+
+        
         // Configuración de escuchadores de clic
         b_igual.setOnClickListener {
             // Realiza la operación según el tipo de operación almacenado
