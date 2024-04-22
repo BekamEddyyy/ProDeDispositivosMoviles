@@ -17,11 +17,9 @@ import com.example.tareita.ui.theme.TareitaTheme
 
 class MainActivity : ComponentActivity() { // Declaración de la clase principal
 
-    // Variables miembro de la clase
-    var oper: Int = 0 // Almacena el tipo de operación
-    var numero1: Double = 0.0 // Almacena el primer número
-    lateinit var tv_num1: TextView // Referencia a la vista del primer número
-    lateinit var tv_num2: TextView // Referencia a la vista del segundo número
+    private var result: Double = 0.0
+    private var currentOperator = Operator.NONE
+    private var lastNumber: Double = 0.0
 
     override fun onCreate(savedInstanceState: Bundle?) { // Método llamado cuando se crea la actividad
         super.onCreate(savedInstanceState)
