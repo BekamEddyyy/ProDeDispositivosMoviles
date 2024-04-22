@@ -1,0 +1,86 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/tv_num1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:gravity="center_vertical|end"
+        android:padding="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_alignParentTop="true"/>
+
+    <TextView
+        android:id="@+id/tv_num2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="36sp"
+        android:textColor="@android:color/black"
+        android:gravity="center_vertical|end"
+        android:padding="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_below="@id/tv_num1"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/tv_num2">
+
+        <!-- Numerical Buttons -->
+        <Button
+            android:id="@+id/b_num1"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="1"
+            android:onClick="presionarDigito"/>
+
+        <!-- Add more numerical buttons similarly -->
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/b_num1">
+
+        <!-- Operator Buttons -->
+        <Button
+            android:id="@+id/bop_suma"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="+"
+            android:onClick="clicOperaciones"/>
+
+        <!-- Add more operator buttons similarly -->
+
+    </LinearLayout>
+
+    <!-- Equal Button -->
+    <Button
+        android:id="@+id/b_igual"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="="
+        android:layout_below="@id/bop_suma"
+        android:onClick="clicOperaciones"/>
+
+    <!-- Clear/Empty Button -->
+    <Button
+        android:id="@+id/C_E"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="C"
+        android:layout_below="@id/b_igual"
+        android:onClick="clicOperaciones"/>
+
+</RelativeLayout>
