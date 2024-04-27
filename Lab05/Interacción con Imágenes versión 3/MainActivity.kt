@@ -1,8 +1,17 @@
+package com.example.prueba1
+
+import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentManager
 import com.example.prueba1.R
+import java.io.File
 
 class MainActivity : AppCompatActivity(), ImageSelectionFragment.OnImageSelectedListener {
+
     private lateinit var imageDisplayFragment: ImageDisplayFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,7 +28,15 @@ class MainActivity : AppCompatActivity(), ImageSelectionFragment.OnImageSelected
     }
 
     override fun onImageSelected(imageName: String) {
-        // Aquí puedes mostrar la imagen en el fragmento de visualización de imágenes
-        // Puedes pasar la imagen al fragmento de visualización como argumento
+        // Check if the image file exists
+        val imageFile = File(filesDir, imageName)
+        if (imageFile.exists()) {
+            // Image file found, display it in the fragment
+            val bitmap = BitmapFactory.decodeFile(imageFile.absolutePath)
+            imageDisplayFragment.displayImage(bitmap)
+        } else {
+            // Image file not found, show error message
+            Toast.makeText(this, "Imagen no encontrada: $imageName", Toast.LENGTH_SHORT).show()
+        }
     }
 }
