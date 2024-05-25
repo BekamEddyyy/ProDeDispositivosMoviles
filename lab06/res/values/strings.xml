@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Gestión de Usuarios</string>
+    <string name="user_list_title">Lista de Usuarios</string>
+    <string name="add_user_title">Agregar Usuario</string>
+    <string name="edit_user_title">Editar Usuario</string>
+    <string name="name_hint">Nombre</string>
+    <string name="email_hint">Email</string>
+    <string name="save_button">Guardar</string>
+    <string name="error_empty_fields">Por favor, complete todos los campos</string>
+</resources>
