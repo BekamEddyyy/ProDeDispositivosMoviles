@@ -13,5 +13,6 @@
 - Practica 4. Ciclo de Vida de una Actividad y paso de Información.
 ## Actividad_nro5(Lab05)
 - Practica 5.  Fragments.
-
+## Actividad_nro6(Lab06)
+- Práctica 6. Recycler View.
 
