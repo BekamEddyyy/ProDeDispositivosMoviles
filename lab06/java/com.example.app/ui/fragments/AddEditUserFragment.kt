@@ -16,9 +16,11 @@ import kotlinx.android.synthetic.main.fragment_add_edit_user.*
 
 class AddEditUserFragment : Fragment() {
 
+    // Recupera los argumentos pasados a este fragmento
     private val args: AddEditUserFragmentArgs by navArgs()
     private lateinit var userViewModel: UserViewModel
 
+    // Inflar el layout para este fragmento
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -26,11 +28,14 @@ class AddEditUserFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_add_edit_user, container, false)
     }
 
+    // Configurar la vista una vez que ha sido creada
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // Inicializar el ViewModel
         userViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
 
+        // Obtener el ID del usuario pasado como argumento
         val userId = args.userId
         if (userId != -1) {
             // Cargar datos del usuario para editar
@@ -38,10 +43,11 @@ class AddEditUserFragment : Fragment() {
             user?.let {
                 editTextName.setText(it.name)
                 editTextEmail.setText(it.email)
-                // Cargar la imagen del usuario
+                // Cargar la imagen del usuario (este código puede necesitar ser agregado)
             }
         }
 
+        // Configurar el comportamiento del botón de guardar
         buttonSave.setOnClickListener {
             val name = editTextName.text.toString()
             val email = editTextEmail.text.toString()
@@ -53,8 +59,10 @@ class AddEditUserFragment : Fragment() {
                     // Editar usuario existente
                     userViewModel.updateUser(User(userId, name, email, R.drawable.ic_user_placeholder))
                 }
+                // Navegar hacia atrás después de guardar
                 findNavController().popBackStack()
             } else {
+                // Mostrar mensaje de error si los campos no están completos
                 Toast.makeText(requireContext(), "Por favor, complete todos los campos", Toast.LENGTH_SHORT).show()
             }
         }
